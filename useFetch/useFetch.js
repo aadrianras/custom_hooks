@@ -8,12 +8,8 @@ export const useFetch = (url, n) => {
     const [state, setState] = useState({ data: null, loading: true });
 
     useEffect(() => {
-
-        return () => {
-            isMounted.current = false;
-        }
+        return () => { isMounted.current = false }
     }, [])
-
 
     useEffect(() => {
         fetch(url)
@@ -27,8 +23,6 @@ export const useFetch = (url, n) => {
                 }
             })
             .catch(console.log)
-
-
     }, [url, n]);
 
     return state;
